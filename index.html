@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nyi Nyi Naing | Generative AI for Work & Research</title>
-
   <style>
     :root {
       --bg: #07111f;
@@ -386,7 +385,7 @@
       border-radius: 20px;
       background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.08);
-      min-height: 260px;
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -531,71 +530,67 @@
 
   <main class="wrap">
 
-    <section id="submissions">
+    <section class="hero">
+      <div class="hero-grid">
 
-      <div class="section-title">
-        <h3>My weekly submissions</h3>
-        <span>Projects, workshops, and course deliverables</span>
-      </div>
+        <div style="position:absolute; right:34px; top:34px; z-index:2;">
+          <img
+            src="https://github.com/nnnaing/graph-ai-portifolio-creation/blob/main/Picture%201.png?raw=true"
+            alt="Nyi Nyi Naing portrait"
+            style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.16);box-shadow:0 20px 40px rgba(0,0,0,0.35);background:rgba(255,255,255,0.08);" />
+        </div>
 
-      <div class="weekly">
-
-        <article class="week">
+        <div class="panel hero-main">
           <div>
-            <div class="tag">Workshop 2</div>
-            <h4>Automated Data Analysis</h4>
+            <div class="eyebrow">Portfolio website</div>
 
-            <p>
-              AI-assisted analysis of Gapminder data exploring the relationship
-              between GDP per capita and life expectancy in 2020. The project
-              includes data cleaning, scatterplot analysis, interpretation,
-              and reflections on responsible AI-assisted analytics workflows.
+            <h2 class="gradient-text">
+              Elegant work-in-progress portfolio for a course in generative AI.
+            </h2>
+
+            <p class="hero-copy">
+              This one-page site brings together a professional research background and an
+              8-week cohort course focused on responsible no-code AI tools for work,
+              research, writing, analysis, automation, and communication.
             </p>
 
-            <a
-              class="project-link"
-              href="gdp_life_expectancy_report_2020_v2.docx%20I.pdf"
-              target="_blank"
-              rel="noopener noreferrer">
-              View Workshop Report →
-            </a>
+            <div class="chips" aria-label="Highlights">
+              <span class="chip">No-code AI tools</span>
+              <span class="chip">Responsible automation</span>
+              <span class="chip">Research productivity</span>
+              <span class="chip">Capstone-ready</span>
+            </div>
           </div>
-        </article>
 
-        <article class="week">
-          <div>
-            <div class="tag">Workshop 3</div>
-            <h4>Analyzing Job Market Data with LLMs</h4>
+          <div class="timeline">
+            <span class="pill">Course: 8 weeks</span>
+            <span class="pill">Format: Live cohort</span>
+            <span class="pill">Style: Gradient glass UI</span>
+          </div>
+        </div>
 
-            <p>
-              AI-assisted analysis of the
-              <strong>data_analyst_postings_sample.csv</strong> dataset using
-              spreadsheets, LLM tools, and AI reporting workflows. The project
-              includes a scatter plot examining minimum years of experience versus
-              median salary estimate, a box plot comparing salary distributions by
-              data programming languages, and concise interpretation of analytical findings.
+        <div class="side-stack">
+
+          <div class="panel stat-card">
+            <div class="stat-label">Profile snapshot</div>
+            <p class="stat-number">15+ years</p>
+            <p class="stat-desc">
+              Experience in analytical chemistry, research, method development,
+              validation, and scientific communication across academic and
+              industrial environments.
             </p>
-
-            <a
-              class="project-link"
-              href="Workshop%203.%20Nyi%20Nyi%20Naing.pdf"
-              target="_blank"
-              rel="noopener noreferrer">
-              View Workshop 3 Report →
-            </a>
           </div>
-        </article>
 
+          <div class="panel stat-card alt">
+            <div class="stat-label">Course focus</div>
+            <p class="stat-number">8 modules</p>
+            <p class="stat-desc">
+              From AI-assisted documents and data analysis to research text synthesis,
+              custom chatbots, automation, and communication workflows.
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
-
-  </main>
-
-  <footer>
-    Crafted for the Generative AI for Work & Research course.
-    Contact details intentionally excluded from the site.
-  </footer>
-
-</body>
-</html>
 ```
