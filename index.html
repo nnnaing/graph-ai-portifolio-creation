@@ -1,638 +1,459 @@
-```html id="n0x7aa"
+```html id="f9v2kq"
 <!DOCTYPE html>
 <html lang="en">
 <head> 
     <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2026/06/03/15/20260603155939-XA0QLIB0.js" defer></script>
-
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyi Nyi Naing | Generative AI for Work & Research</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg2: #0b1830;
+      --card: rgba(10, 20, 38, 0.72);
+      --card-strong: rgba(12, 24, 46, 0.9);
+      --text: #eaf1ff;
+      --muted: #b4c2dd;
+      --line: rgba(186, 206, 255, 0.15);
+      --accent: #8b5cf6;
+      --accent2: #22d3ee;
+      --accent3: #f472b6;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --radius: 26px;
+    }
 
-    <title>Nyi Nyi Naing | Generative AI for Work & Research</title>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    <style>
-      :root {
-        --bg: #07111f;
-        --bg2: #0b1830;
-        --card: rgba(10, 20, 38, 0.72);
-        --card-strong: rgba(12, 24, 46, 0.9);
-        --text: #eaf1ff;
-        --muted: #b4c2dd;
-        --line: rgba(186, 206, 255, 0.15);
-        --accent: #8b5cf6;
-        --accent2: #22d3ee;
-        --accent3: #f472b6;
-        --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-        --radius: 26px;
-      }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.26), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.18), transparent 24%),
+        radial-gradient(circle at 70% 70%, rgba(244, 114, 182, 0.15), transparent 28%),
+        linear-gradient(160deg, var(--bg), var(--bg2) 62%, #040814);
+      min-height: 100vh;
+    }
 
-      * { box-sizing: border-box; }
+    .noise::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
+      opacity: 0.5;
+    }
 
-      html {
-        scroll-behavior: smooth;
-      }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
-      body {
-        margin: 0;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.26), transparent 28%),
-          radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.18), transparent 24%),
-          radial-gradient(circle at 70% 70%, rgba(244, 114, 182, 0.15), transparent 28%),
-          linear-gradient(160deg, var(--bg), var(--bg2) 62%, #040814);
-        min-height: 100vh;
-      }
+    header {
+      padding: 30px 0 12px;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(4, 8, 20, 0.76), rgba(4, 8, 20, 0.24));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 5;
+    }
 
-      .noise::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background-image:
-          linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-        background-size: 42px 42px;
-        mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
-        opacity: 0.5;
-      }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
-      .wrap {
-        width: min(1120px, calc(100% - 32px));
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
 
-      header {
-        padding: 30px 0 12px;
-        position: sticky;
-        top: 0;
-        backdrop-filter: blur(16px);
-        background: linear-gradient(to bottom, rgba(4, 8, 20, 0.76), rgba(4, 8, 20, 0.24));
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        z-index: 5;
-      }
+    .orb {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 30px rgba(34, 211, 238, 0.24);
+      position: relative;
+      overflow: hidden;
+    }
 
-      .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-      }
+    .orb::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        min-width: 0;
-      }
+    .brand h1 {
+      font-size: 1rem;
+      margin: 0;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
 
-      .orb {
-        width: 44px;
-        height: 44px;
-        border-radius: 16px;
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
-        box-shadow: 0 12px 30px rgba(34, 211, 238, 0.24);
-        position: relative;
-        overflow: hidden;
-      }
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
 
-      .orb::after {
-        content: "";
-        position: absolute;
-        inset: 8px;
-        border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.35);
-      }
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-      .brand h1 {
-        font-size: 1rem;
-        margin: 0;
-        line-height: 1.1;
-        letter-spacing: 0.02em;
-      }
+    .navlinks a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
 
-      .brand p {
-        margin: 4px 0 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
+    .navlinks a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
 
-      .navlinks {
-        display: flex;
-        gap: 18px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
+    .hero {
+      padding: 48px 0 26px;
+    }
 
-      .navlinks a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 0.95rem;
-        padding: 10px 12px;
-        border-radius: 999px;
-        transition: 0.25s ease;
-      }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+      position: relative;
+    }
 
-      .navlinks a:hover {
-        color: var(--text);
-        background: rgba(255,255,255,0.06);
-      }
+    .panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(17, 29, 53, 0.82), rgba(9, 18, 36, 0.78));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
 
-      .hero {
-        padding: 48px 0 26px;
-      }
+    .hero-main {
+      padding: 34px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1.3fr 0.8fr;
-        gap: 22px;
-        align-items: stretch;
-        position: relative;
-      }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #d9e7ff;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
 
-      .panel {
-        border: 1px solid var(--line);
-        background: linear-gradient(180deg, rgba(17, 29, 53, 0.82), rgba(9, 18, 36, 0.78));
-        box-shadow: var(--shadow);
-        border-radius: var(--radius);
-        overflow: hidden;
-        position: relative;
-      }
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent2), transparent);
+    }
 
-      .hero-main {
-        padding: 34px;
-        min-height: 420px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
+    h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
 
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        color: #d9e7ff;
-        font-size: 0.88rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #a5f3fc 30%, #c4b5fd 65%, #f9a8d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-      .eyebrow::before {
-        content: "";
-        width: 32px;
-        height: 1px;
-        background: linear-gradient(90deg, var(--accent2), transparent);
-      }
+    .hero-copy {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 18px 0 0;
+    }
 
-      h2 {
-        margin: 0;
-        font-size: clamp(2.4rem, 5vw, 4.7rem);
-        line-height: 0.98;
-        letter-spacing: -0.05em;
-      }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
 
-      .gradient-text {
-        background: linear-gradient(90deg, #ffffff, #a5f3fc 30%, #c4b5fd 65%, #f9a8d4);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
+    .chip {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      color: #edf3ff;
+    }
 
-      .hero-copy {
-        max-width: 62ch;
-        color: var(--muted);
-        font-size: 1.05rem;
-        line-height: 1.8;
-        margin: 18px 0 0;
-      }
+    .side-stack {
+      display: grid;
+      gap: 22px;
+    }
 
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 24px;
-      }
+    .stat-card {
+      padding: 24px;
+      min-height: 199px;
+      background: linear-gradient(180deg, rgba(139,92,246,0.18), rgba(17,29,53,0.78));
+    }
 
-      .chip {
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.05);
-        padding: 10px 14px;
-        border-radius: 999px;
-        font-size: 0.92rem;
-        color: #edf3ff;
-      }
+    .stat-card.alt {
+      background: linear-gradient(180deg, rgba(34,211,238,0.16), rgba(17,29,53,0.78));
+    }
 
-      .side-stack {
-        display: grid;
-        gap: 22px;
-      }
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
 
-      .stat-card {
-        padding: 24px;
-        min-height: 199px;
-        background: linear-gradient(180deg, rgba(139,92,246,0.18), rgba(17,29,53,0.78));
-      }
+    .stat-number {
+      font-size: 2.15rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
 
-      .stat-card.alt {
-        background: linear-gradient(180deg, rgba(34,211,238,0.16), rgba(17,29,53,0.78));
-      }
+    .stat-desc {
+      color: #dfe9ff;
+      line-height: 1.7;
+      margin: 12px 0 0;
+      font-size: 0.98rem;
+    }
 
-      .stat-label {
-        color: var(--muted);
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin-bottom: 10px;
-      }
+    section {
+      padding: 16px 0 0;
+    }
 
-      .stat-number {
-        font-size: 2.15rem;
-        font-weight: 700;
-        margin: 0;
-        letter-spacing: -0.04em;
-      }
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 30px 0 16px;
+    }
 
-      .stat-desc {
-        color: #dfe9ff;
-        line-height: 1.7;
-        margin: 12px 0 0;
-        font-size: 0.98rem;
-      }
+    .section-title h3 {
+      margin: 0;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
 
-      section {
-        padding: 16px 0 0;
-      }
+    .section-title span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-      .section-title {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 14px;
-        margin: 30px 0 16px;
-      }
+    .weekly {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
 
-      .section-title h3 {
-        margin: 0;
-        font-size: 1.55rem;
-        letter-spacing: -0.03em;
-      }
+    .week {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-      .section-title span {
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
+    .week .tag {
+      font-size: 0.8rem;
+      color: #f9a8d4;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
 
-      .content-card {
-        padding: 24px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: linear-gradient(180deg, rgba(13, 23, 45, 0.82), rgba(8, 14, 30, 0.82));
-        box-shadow: var(--shadow);
-      }
+    .week h4 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+    }
 
-      .content-card p {
-        color: var(--muted);
-        line-height: 1.8;
-        font-size: 0.98rem;
-      }
+    .week p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
 
-      .profile-grid,
-      .module-list,
-      .weekly {
-        display: grid;
-        gap: 14px;
-      }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
 
-      .profile-grid {
-        grid-template-columns: 1fr 1fr;
-        margin-top: 16px;
-      }
-
-      .module-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-top: 16px;
-      }
-
-      .weekly {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .mini,
-      .module,
-      .week {
-        padding: 18px;
-        border-radius: 20px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-      }
-
-      .project-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 18px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        text-decoration: none;
-        color: #ffffff;
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
-
-      footer {
-        padding: 30px 0 44px;
-        color: var(--muted);
-        text-align: center;
-        font-size: 0.92rem;
-      }
-
-      @media (max-width: 980px) {
-        .hero-grid,
-        .profile-grid,
-        .module-list,
-        .weekly {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    footer {
+      padding: 30px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="noise"></div>
 
-<div class="noise"></div>
-
-<header>
-  <div class="wrap nav">
-
-    <div class="brand">
-      <div class="orb"></div>
-
-      <div>
-        <h1>Nyi Nyi Naing</h1>
-        <p>Generative AI for Work & Research</p>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="orb"></div>
+        <div>
+          <h1>Nyi Nyi Naing</h1>
+          <p>Generative AI for Work & Research</p>
+        </div>
       </div>
+
+      <nav class="navlinks">
+        <a href="#about">About me</a>
+        <a href="#course">About the course</a>
+        <a href="#submissions">Weekly submissions</a>
+      </nav>
     </div>
-
-    <nav class="navlinks">
-      <a href="#about">About me</a>
-      <a href="#course">About the course</a>
-      <a href="#submissions">Weekly submissions</a>
-    </nav>
-
-  </div>
-</header>
-
-<main class="wrap">
-
-<section class="hero">
-
-<div class="hero-grid">
-
-<div style="position:absolute; right:34px; top:34px; z-index:2;">
-  <img
-    src="https://github.com/nnnaing/graph-ai-portifolio-creation/blob/main/Picture%201.png?raw=true"
-    alt="Nyi Nyi Naing portrait"
-    style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.16);" />
-</div>
-
-<div class="panel hero-main">
-
-<div>
-
-<div class="eyebrow">Portfolio website</div>
-
-<h2 class="gradient-text">
-  Elegant work-in-progress portfolio for a course in generative AI.
-</h2>
-
-<p class="hero-copy">
-  This one-page site brings together a professional research background
-  and an 8-week cohort course focused on responsible no-code AI tools.
-</p>
-
-<div class="chips">
-  <span class="chip">No-code AI tools</span>
-  <span class="chip">Responsible automation</span>
-  <span class="chip">Research productivity</span>
-  <span class="chip">Capstone-ready</span>
-</div>
-
-</div>
-
-</div>
-
-<div class="side-stack">
-
-<div class="panel stat-card">
-  <div class="stat-label">Profile snapshot</div>
-
-  <p class="stat-number">15+ years</p>
-
-  <p class="stat-desc">
-    Experience in analytical chemistry, research,
-    method development, and scientific communication.
-  </p>
-</div>
-
-<div class="panel stat-card alt">
-  <div class="stat-label">Course focus</div>
-
-  <p class="stat-number">8 modules</p>
-
-  <p class="stat-desc">
-    AI-assisted documents, data analysis,
-    chatbots, automation, and communication workflows.
-  </p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="about">
-
-<div class="section-title">
-  <h3>About me</h3>
-  <span>Professional background and strengths</span>
-</div>
-
-<div class="content-card">
-
-<p>
-  I am a research scientist and analytical development professional
-  based in Singapore with experience in analytical chemistry,
-  validation, and scientific communication.
-</p>
-
-<div class="profile-grid">
-
-<div class="mini">
-  <strong>Research & analytics</strong>
-  <p>GC-MS/MS, LC-MS/MS, HPLC, CE, IC, XRF, ICP, FTIR, TGA, XRD.</p>
-</div>
-
-<div class="mini">
-  <strong>Scientific communication</strong>
-  <p>Peer-reviewed articles, mentoring, presentations, and reporting.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="course">
-
-<div class="section-title">
-  <h3>About the course</h3>
-  <span>Generative AI for Work & Research</span>
-</div>
-
-<div class="content-card">
-
-<p>
-  This 8-week live cohort course focuses on no-code AI tools for
-  responsible task automation, chatbot design, and workflow support.
-</p>
-
-<div class="module-list">
-
-<div class="module">
-  <h4>Module 1</h4>
-  <p>Websites, documents & presentations</p>
-</div>
-
-<div class="module">
-  <h4>Module 2</h4>
-  <p>AI-automated data analysis</p>
-</div>
-
-<div class="module">
-  <h4>Module 3</h4>
-  <p>GenAI for research & text analysis</p>
-</div>
-
-<div class="module">
-  <h4>Module 4</h4>
-  <p>Custom GPTs and chatbots</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="submissions">
-
-<div class="section-title">
-  <h3>My weekly submissions</h3>
-  <span>Projects, workshops, and course deliverables</span>
-</div>
-
-<div class="weekly">
-
-<!-- WORKSHOP 2 -->
-
-<article class="week">
-
-<div>
-  <div class="tag">Workshop 2</div>
-
-  <h4>Automated Data Analysis</h4>
-
-  <p>
-    AI-assisted analysis of Gapminder data exploring the relationship
-    between GDP per capita and life expectancy in 2020.
-  </p>
-
-  <a
-    class="project-link"
-    href="gdp_life_expectancy_report_2020_v2.docx%20I.pdf"
-    target="_blank">
-    View Workshop Report →
-  </a>
-</div>
-
-</article>
-
-<!-- WORKSHOP 3 -->
-
-<article class="week">
-
-<div>
-  <div class="tag">Workshop 3</div>
-
-  <h4>Analyzing Job Market Data with LLMs</h4>
-
-  <p>
-    Analysis of job market datasets using AI-assisted spreadsheet
-    workflows and reporting tools.
-  </p>
-
-  <a
-    class="project-link"
-    href="Workshop%203.%20Nyi%20Nyi%20Naing.pdf"
-    target="_blank">
-    View Workshop 3 Report →
-  </a>
-</div>
-
-</article>
-
-<!-- WORKSHOP 4 -->
-
-<article class="week">
-
-<div>
-
-<div class="tag">Workshop 4</div>
-
-<h4>Portfolio Website Chatbot with Botpress</h4>
-
-<p>
-  Created an LLM-powered chatbot using Botpress and embedded it
-  into my portfolio website. The chatbot provides interactive
-  responses and demonstrates practical AI web integration.
-</p>
-
-<img
-  src="Workshop%204,%20Nyi%20Nyi%20Naing.png"
-  alt="Workshop 4 Portfolio Website Chatbot with Botpress"
-  style="
-    width:100%;
-    border-radius:14px;
-    margin-top:14px;
-    border:1px solid rgba(255,255,255,0.08);
-  ">
-
-<a
-  class="project-link"
-  href="Workshop%204,%20Nyi%20Nyi%20Naing.png"
-  target="_blank">
-  View Workshop 4 Project →
-</a>
-
-</div>
-
-</article>
-
-</div>
-
-</section>
-
-</main>
-
-<footer>
-  Crafted for the Generative AI for Work & Research course.
-</footer>
+  </header>
+
+  <main class="wrap">
+
+    <section id="submissions">
+
+      <div class="section-title">
+        <h3>My weekly submissions</h3>
+        <span>Projects, workshops, and course deliverables</span>
+      </div>
+
+      <div class="weekly">
+
+        <article class="week">
+          <div>
+            <div class="tag">Workshop 2</div>
+            <h4>Automated Data Analysis</h4>
+
+            <p>
+              AI-assisted analysis of Gapminder data exploring the relationship
+              between GDP per capita and life expectancy in 2020.
+            </p>
+
+            <a
+              class="project-link"
+              href="gdp_life_expectancy_report_2020_v2.docx%20I.pdf"
+              target="_blank">
+              View Workshop Report →
+            </a>
+          </div>
+        </article>
+
+        <article class="week">
+          <div>
+            <div class="tag">Workshop 3</div>
+            <h4>Analyzing Job Market Data with LLMs</h4>
+
+            <p>
+              Analysis of job market datasets using AI-assisted spreadsheet
+              workflows and reporting tools.
+            </p>
+
+            <a
+              class="project-link"
+              href="Workshop%203.%20Nyi%20Nyi%20Naing.pdf"
+              target="_blank">
+              View Workshop 3 Report →
+            </a>
+          </div>
+        </article>
+
+        <!-- UPDATED WORKSHOP 4 -->
+
+        <article class="week">
+          <div>
+
+            <div class="tag">Workshop 4</div>
+
+            <h4>Portfolio Website Chatbot with Botpress</h4>
+
+            <p>
+              Created an LLM-powered chatbot using Botpress and embedded it
+              into my portfolio website that was developed in a previous section.
+              The chatbot provides interactive AI-powered responses and demonstrates
+              practical integration of generative AI into a responsive web portfolio.
+            </p>
+
+            <img
+              src="Workshop%204,%20Nyi%20Nyi%20Naing.png"
+              alt="Workshop 4 Portfolio Website Chatbot with Botpress"
+              style="
+                width:100%;
+                border-radius:14px;
+                margin-top:14px;
+                border:1px solid rgba(255,255,255,0.08);
+              ">
+
+            <a
+              class="project-link"
+              href="Workshop%204,%20Nyi%20Nyi%20Naing.png"
+              target="_blank"
+              rel="noopener noreferrer">
+              View Workshop 4 Project →
+            </a>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Crafted for the Generative AI for Work & Research course.
+  </footer>
 
 </body>
 </html>
