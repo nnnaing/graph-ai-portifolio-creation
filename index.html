@@ -1,308 +1,363 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<header>
+  <div class="nav">
 
-  <title>Nyi Nyi Naing | Generative AI for Work & Research</title>
+    <div class="brand">
+      <div class="orb"></div>
 
-  <style>
-    :root {
-      --bg: #07111f;
-      --bg2: #0b1830;
-      --text: #f4f7ff;
-      --muted: #b7c4df;
-      --accent: #8b5cf6;
-      --accent2: #22d3ee;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 20px 50px rgba(0,0,0,0.35);
-      --radius: 28px;
-    }
+      <div>
+        <h1>Nyi Nyi Naing</h1>
+        <p>Generative AI for Work & Research</p>
+      </div>
+    </div>
 
-    * { box-sizing: border-box; }
+    <nav class="navlinks" aria-label="Primary navigation">
+  <a href="#about">About me</a>
+  <a href="#course">About the course</a>
+  <a href="#submissions">Weekly submissions</a>
+  <a href="#consultation">Consultation</a>
+</nav>
 
-    html { scroll-behavior: smooth; }
+  </div>
+</header>
 
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.26), transparent 28%),
-        radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.18), transparent 24%),
-        radial-gradient(circle at 70% 70%, rgba(244, 114, 182, 0.15), transparent 28%),
-        linear-gradient(160deg, var(--bg), var(--bg2) 62%, #040814);
-      min-height: 100vh;
-    }
+<section class="hero">
 
-    .noise::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
-      opacity: 0.5;
-    }
+  <div class="hero-grid">
 
-    .wrap {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+    <div style="position:absolute; right:34px; top:34px; z-index:2;">
+      <img
+        src="https://github.com/nnnaing/graph-ai-portifolio-creation/blob/main/Picture%201.png?raw=true"
+        alt="Nyi Nyi Naing portrait"
+        style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.16);box-shadow:0 20px 40px rgba(0,0,0,0.35);background:rgba(255,255,255,0.08);" />
+    </div>
 
-    header {
-      padding: 30px 0 12px;
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom,
-        rgba(4, 8, 20, 0.76),
-        rgba(4, 8, 20, 0.24));
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      z-index: 5;
-    }
+    <div class="panel hero-main">
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
+      <div>
 
-    .brand { display: flex; align-items: center; gap: 14px; }
+        <div class="eyebrow">Portfolio website</div>
 
-    .orb {
-      width: 44px; height: 44px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 12px 30px rgba(34, 211, 238, 0.24);
-    }
+        <h2 class="gradient-text">
+          Elegant work-in-progress portfolio for a course in generative AI.
+        </h2>
 
-    .brand h1 { font-size: 1rem; margin: 0; }
-    .brand p { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+        <p class="hero-copy">
+          This one-page site brings together a professional research
+          background and an 8-week cohort course focused on responsible
+          no-code AI tools for work, research, writing, analysis,
+          automation, and communication.
+        </p>
 
-    .navlinks {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .navlinks a {
-      color: var(--muted);
-      text-decoration: none;
-      padding: 10px 12px;
-      border-radius: 999px;
-    }
-
-    .navlinks a:hover {
-      color: var(--text);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .panel, .content-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(13, 23, 45, 0.82);
-      box-shadow: var(--shadow);
-      padding: 24px;
-    }
-
-    section { padding: 16px 0; }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin: 30px 0 16px;
-    }
-
-    .section-title h3 { margin: 0; }
-
-    .weekly {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .week {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 220px;
-    }
-
-    .project-link {
-      display: inline-flex;
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-    }
-
-    /* NEW SECTION STYLES */
-    .consultation-frame {
-      width: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-      margin-top: 16px;
-    }
-
-    footer {
-      padding: 30px 0 44px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    @media (max-width: 900px) {
-      .weekly { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 700px) {
-      .weekly { grid-template-columns: 1fr; }
-      .nav { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
-</head>
-
-<body class="noise">
-
-<div class="wrap">
-
-  <header>
-    <div class="nav">
-
-      <div class="brand">
-        <div class="orb"></div>
-        <div>
-          <h1>Nyi Nyi Naing</h1>
-          <p>Generative AI for Work & Research</p>
+        <div class="chips" aria-label="Highlights">
+          <span class="chip">No-code AI tools</span>
+          <span class="chip">Responsible automation</span>
+          <span class="chip">Research productivity</span>
+          <span class="chip">Capstone-ready</span>
         </div>
+
       </div>
 
-      <nav class="navlinks">
-        <a href="#about">About me</a>
-        <a href="#course">About the course</a>
-        <a href="#submissions">Weekly submissions</a>
-        <a href="#consultation">Contact</a>
-      </nav>
+      <div class="timeline">
+        <span class="pill">Course: 8 weeks</span>
+        <span class="pill">Format: Live cohort</span>
+        <span class="pill">Style: Gradient glass UI</span>
+      </div>
 
     </div>
-  </header>
 
-  <!-- HERO (UNCHANGED CONTENT OMITTED FOR BREVITY IN EXPLANATION, FULL KEPT BELOW) -->
-  <!-- Your original hero section remains unchanged -->
-  <!-- (keeping full structure as provided) -->
+    <div class="side-stack">
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-title">
-      <h3>About me</h3>
-      <span>Professional background and strengths</span>
+      <div class="panel stat-card">
+        <div class="stat-label">Profile snapshot</div>
+
+        <p class="stat-number">15+ years</p>
+
+        <p class="stat-desc">
+          Experience in analytical chemistry, research,
+          method development, validation, and scientific
+          communication across academic and industrial environments.
+        </p>
+      </div>
+
+      <div class="panel stat-card alt">
+        <div class="stat-label">Course focus</div>
+
+        <p class="stat-number">8 modules</p>
+
+        <p class="stat-desc">
+          From AI-assisted documents and data analysis to
+          research text synthesis, custom chatbots,
+          automation, and communication workflows.
+        </p>
+      </div>
+
     </div>
 
-    <div class="content-card">
-      <p>
-        I am a research scientist and analytical development professional
-        based in Singapore...
+  </div>
+
+</section>
+
+<section id="about">
+
+  <div class="section-title">
+    <h3>About me</h3>
+    <span>Professional background and strengths</span>
+  </div>
+
+  <div class="content-card">
+
+    <p>
+      I am a research scientist and analytical development professional
+      based in Singapore, with a long track record in analytical method
+      development, validation, microextraction techniques, and
+      environmental and biological analysis.
+    </p>
+
+    <div class="profile-grid">
+
+      <div class="mini">
+        <strong>Research & analytics</strong>
+
+        <span>
+          GC-MS/MS, LC-MS/MS, HPLC, CE, IC, XRF, ICP,
+          FTIR, TGA, XRD, TEM, and FESEM.
+        </span>
+      </div>
+
+      <div class="mini">
+        <strong>Scientific communication</strong>
+
+        <span>
+          Peer-reviewed articles, book chapters,
+          mentoring, presentations, and collaborative reporting.
+        </span>
+      </div>
+
+      <div class="mini">
+        <strong>Leadership</strong>
+
+        <span>
+          Project coordination, student supervision,
+          laboratory support, and cross-functional teamwork.
+        </span>
+      </div>
+
+      <div class="mini">
+        <strong>Current direction</strong>
+
+        <span>
+          Exploring how generative AI can improve research productivity,
+          workflow design, and communication.
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="course">
+
+  <div class="section-title">
+    <h3>About the course</h3>
+    <span>Generative AI for Work & Research</span>
+  </div>
+
+  <div class="content-card">
+
+    <div class="course-hero">
+
+      <p style="margin:0;color:#eff6ff;font-size:1.02rem;line-height:1.8;">
+        This 8-week live cohort course focuses on no-code AI tools
+        for responsible task automation. It covers practical
+        applications for document creation, data analysis,
+        literature review, chatbot design, workflow automation,
+        and communication support.
       </p>
-    </div>
-  </section>
 
-  <!-- COURSE -->
-  <section id="course">
-    <div class="section-title">
-      <h3>About the course</h3>
-      <span>Generative AI for Work & Research</span>
     </div>
 
-    <div class="content-card">
-      <p>
-        This 8-week live cohort course focuses on no-code AI tools...
-      </p>
-    </div>
-  </section>
+  </div>
 
-  <!-- SUBMISSIONS -->
-  <section id="submissions">
-    <div class="section-title">
-      <h3>My weekly submissions</h3>
-      <span>Projects, workshops, and course deliverables</span>
-    </div>
+</section>
 
-    <div class="weekly">
-      <div class="week">Week 1 placeholder</div>
-      <div class="week">Week 2 placeholder</div>
-      <div class="week">Week 3 placeholder</div>
-      <div class="week">Week 4 placeholder</div>
-    </div>
-  </section>
+<section id="submissions">
 
-  <!-- ✅ NEW SECTION -->
-  <section id="consultation">
-    <div class="section-title">
-      <h3>Contact for Consultation</h3>
-      <span>Submit your inquiry via Google Form</span>
-    </div>
+  <div class="section-title">
+    <h3>My weekly submissions</h3>
+    <span>Projects, workshops, and course deliverables</span>
+  </div>
 
-    <div class="content-card">
-      <p>
-        If you would like to discuss collaboration, consulting, or AI-related projects,
-        please fill out the form below and I will get back to you.
-      </p>
+  <div class="weekly">
 
-      <div class="consultation-frame">
+    <article class="week">
+      <div>
+        <div class="tag">Week 1</div>
+
+        <h4>Foundations & setup</h4>
+
+        <p>
+          Placeholder for the first submission.
+        </p>
+      </div>
+    </article>
+
+    <article class="week">
+      <div>
+
+        <div class="tag">Workshop 2</div>
+
+        <h4>Automated Data Analysis</h4>
+
+        <p>
+          AI-assisted analysis of Gapminder data exploring the
+          relationship between GDP per capita and life expectancy.
+        </p>
+
+        <a
+          class="project-link"
+          href="gdp_life_expectancy_report_2020_v2.docx%20I.pdf"
+          target="_blank">
+          View Workshop Report →
+        </a>
+
+      </div>
+    </article>
+
+    <article class="week">
+      <div>
+
+        <div class="tag">Workshop 3</div>
+
+        <h4>
+          Analyzing Job Market Data with LLMs in Sheets and AI Reporting Tools
+        </h4>
+
+        <p>
+          Analysis of job market datasets using AI-assisted spreadsheet
+          workflows and reporting tools.
+        </p>
+
+        <a
+          class="project-link"
+          href="Workshop%203.%20Nyi%20Nyi%20Naing.pdf"
+          target="_blank">
+          View Workshop 3 Report →
+        </a>
+
+      </div>
+    </article>
+
+    <!-- WORKSHOP 4 ADDED -->
+
+    <article class="week">
+      <div>
+
+        <div class="tag">Workshop 4</div>
+
+        <h4>Portfolio Website Chatbot with Botpress</h4>
+
+        <p>
+          Created an LLM-powered chatbot using Botpress and embedded
+          it into my portfolio website. The chatbot was designed to
+          support interactive user engagement and demonstrate how
+          conversational AI can enhance professional portfolio websites.
+        </p>
+
+        <img
+          src="https://github.com/nnnaing/graph-ai-portifolio-creation/raw/main/Workshop%204%2C%20Nyi%20Nyi%20Naing.png"
+          alt="Workshop 4 Botpress Chatbot"
+          class="workshop-image">
+
+        <a
+          class="project-link"
+          href="Workshop%204%2C%20Nyi%20Nyi%20Naing.png"
+          target="_blank"
+          rel="noopener noreferrer">
+          View Workshop 4 →
+        </a>
+
+      </div>
+    </article>
+
+    <article class="week">
+      <div>
+        <div class="tag">Week 5</div>
+
+        <h4>Chatbots & custom tools</h4>
+
+        <p>
+          Placeholder for a chatbot demo,
+          workflow prototype, or related submission link.
+        </p>
+      </div>
+    </article>
+
+    <article class="week">
+      <div>
+        <div class="tag">Week 6</div>
+
+        <h4>Automation practice</h4>
+
+        <p>
+          Placeholder for task automation,
+          workflow design, or AI agent exercises.
+        </p>
+      </div>
+    </article>
+
+    <article class="week">
+      <div>
+        <div class="tag">Week 7</div>
+
+        <h4>Communication assets</h4>
+
+        <p>
+          Placeholder for visuals, summaries,
+          or outreach materials created with AI tools.
+        </p>
+      </div>
+    </article>
+
+    <article class="week">
+      <div>
+        <div class="tag">Week 8</div>
+
+        <h4>Capstone showcase</h4>
+
+        <p>
+          Placeholder for the final project,
+          presentation, or showcase deliverable.
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+    <section id="consultation">
+
+      <div class="section-title">
+        <h3>Contact for Consultation</h3>
+        <span>Submit your inquiry using the form below</span>
+      </div>
+
+      <div class="content-card" style="text-align:center;">
+
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSc6iDTxz1_1yQpKQQmxbVhPQLq2ejNyoqqV6CnlRKJO24hFhA/viewform?embedded=true"
           width="100%"
-          height="780"
+          height="900"
           frameborder="0"
           marginheight="0"
           marginwidth="0">
           Loading…
         </iframe>
+
       </div>
-    </div>
-  </section>
 
-  <footer>
-    © 2026 Nyi Nyi Naing • Generative AI for Work & Research Portfolio
-  </footer>
-
-</div>
-
-</body>
-</html>  
-   
-    
-   
-
-
-  
-
-
-   
-      
-   
-   
-
-   
-  
-    
-     
-   
-    
-
-  
-
-      
+    </section>
+<footer>
+  © 2026 Nyi Nyi Naing • Generative AI for Work & Research Portfolio
+</footer>
